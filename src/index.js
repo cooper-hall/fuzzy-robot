@@ -8,7 +8,8 @@ const cutieImage = document.getElementById('image')
 const voteCount = document.getElementById('vote-count')
 const form = document.getElementById('votes-form')
 const votesInForm = document.getElementById('votes')
-
+const characterForm = document.getElementById('character-form')
+const resetButton = document.getElementById('reset-btn')
 
 // rendering the cuties and adding click event to them(ramen rater-esq)
 const renderCuties = async() => {
@@ -40,13 +41,27 @@ form.addEventListener('submit', (e) => {
 })
 
 //trying out the advanced deliverables
-const resetButton = document.getElementById('reset-btn')
 
 //resets votes to zero
 resetButton.addEventListener('click', () => {
-    voteCount.innerText = 0
-  }
+  voteCount.innerText = 0
+}
 )
+//trying out the 2nd advanced
+
+characterForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  let span = document.createElement('span')
+  span.innerText = characterForm.name.value
+  let img = document.createElement('img')
+  img.src = characterForm.imageurl.value
+  // console.log(img)
+  let voteSpan = document.createElement('span')
+  voteSpan.innerText = 0
+  //console.log(voteSpan)
+  characterBar.append(span)
+
+})
 
 
 renderCuties()
